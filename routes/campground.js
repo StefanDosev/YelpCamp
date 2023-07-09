@@ -4,6 +4,8 @@ const Campground = require('../models/campground');
 const wrapAsync = require('../utils/wrapAsync');
 const ExpressError = require('../utils/ExpressError');
 const {campgroundSchema} = require('../schemas');
+const { isLoggedIn } = require('../middleware');
+
 
 
 
@@ -23,10 +25,10 @@ router.get('/',async(req,res)=>{
     const campgrounds = await Campground.find({});
     res.render('campgrounds/index',{campgrounds});
 })
-router.get('/new', (req,res)=>{
+router.get('/new', isLoggedIn, (req,res)=>{
     res.render('campgrounds/new');
 })
-router.post('/',validateCamground, wrapAsync(async (req,res,next)=>{
+router.post('/',validateCamground, isLoggedIn, wrapAsync(async (req,res,next)=>{
         
     const campground = new Campground(req.body.campground);
     await campground.save();
@@ -46,20 +48,20 @@ router.get('/:id', wrapAsync(async(req,res)=>{
     res.render('campgrounds/show',{camp})
 }))
 
-router.get('/:id/edit', wrapAsync(async(req,res)=>{
+router.get('/:id/edit', isLoggedIn, wrapAsync(async(req,res)=>{
     const{id} = req.params;
     const camp = await Campground.findById(id);
     res.render('campgrounds/edit',{camp})
 }))
 
-router.put('/:id',validateCamground, wrapAsync(async(req,res)=>{
+router.put('/:id',validateCamground, isLoggedIn, wrapAsync(async(req,res)=>{
     const{id} = req.params;
     const camp = await Campground.findByIdAndUpdate(id, {...req.body.campground})
     req.flash('success', 'Successfully updated campground')
     res.redirect(`${camp._id}`)
 }))
 
-router.delete('/:id', wrapAsync(async(req,res)=>{
+router.delete('/:id', isLoggedIn, wrapAsync(async(req,res)=>{
     const{id} = req.params;
     const camp = await Campground.findByIdAndDelete(id);
     req.flash('success','Successfully added new campground.')
