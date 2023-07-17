@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const campgrounds = require('../controllers/campgrounds');
 const wrapAsync = require('../utils/wrapAsync');
+const multer  = require('multer')
+const{storage} = require('../cloudinary')
+const upload = multer({ storage })
 
 const { isLoggedIn, validateCamground, isAuthor } = require('../middleware');
 
@@ -10,7 +13,7 @@ const { isLoggedIn, validateCamground, isAuthor } = require('../middleware');
 
 router.route('/')
     .get(wrapAsync(campgrounds.index))
-    .post(validateCamground, isLoggedIn, wrapAsync(campgrounds.createCamp));
+    .post(isLoggedIn,upload.array('image'), validateCamground, wrapAsync(campgrounds.createCamp));
 
 
 router.route('/new')
