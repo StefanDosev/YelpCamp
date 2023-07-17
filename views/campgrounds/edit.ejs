@@ -1,6 +1,6 @@
 <% layout('layout/boilerplate') %>
    
-    <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="post" class="needs-validation" novalidate>
+    <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
         <div class="row">
             <h1 class="text-center">Edit Campground</h1>
             <div class="col-6 offset-3">
@@ -14,8 +14,8 @@
                         <input class="form-control"  type="text" name="campground[location]" id="location" value="<%= camp.location %>" required>
                     </div>
                     <div  class="mb-3">
-                        <label  class="form-label" for="image">Image URL</label>
-                        <input class="form-control"  type="text" name="campground[image]" id="image" value="<%= camp.image %>" required>
+                        <label  class="form-label" for="image">Add images</label>
+                       <input type="file" name="image" id="image" multiple>
                     </div>
                     <div class="mb-3">
                         <label for="price">Campground price</label>

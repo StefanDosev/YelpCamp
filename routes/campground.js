@@ -21,7 +21,7 @@ router.route('/new')
 
 router.route('/:id')
     .get(wrapAsync(campgrounds.findCamp))
-    .put(validateCamground, isLoggedIn, isAuthor, wrapAsync(campgrounds.submitEdit))
+    .put(isLoggedIn, isAuthor,upload.array('image'), validateCamground, wrapAsync(campgrounds.submitEdit))
     .delete(isLoggedIn, isAuthor, wrapAsync(campgrounds.deleteCamp))
 
 
