@@ -1,4 +1,6 @@
 <% layout('layout/boilerplate') %>
+
+<link rel="stylesheet" href="/styles/thumbnails.css">
    
     <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
         <div class="row">
@@ -13,10 +15,8 @@
                         <label  class="form-label" for="location">Location</label>
                         <input class="form-control"  type="text" name="campground[location]" id="location" value="<%= camp.location %>" required>
                     </div>
-                    <div  class="mb-3">
-                        <label  class="form-label" for="image">Add images</label>
-                       <input type="file" name="image" id="image" multiple>
-                    </div>
+                     
+                    
                     <div class="mb-3">
                         <label for="price">Campground price</label>
                         <div class="input-group ">
@@ -30,14 +30,59 @@
                         <label  class="form-label" for="description">Description</label>
                         <textarea class="form-control"  type="text" name="campground[description]" id="description" required><%= camp.description %></textarea>
                     </div>
-                    <div class="mb-3">
-                        <button class="btn btn-success">Add Campground</button>
-                    </div>
-                    
-                    
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="image" name="image" multiple>
+                        <label class="input-group-text" for="image">&#128196;</label>
+                      </div>
+                    <div class="image-gallery">
+                        <% camp.images.forEach(function(img, i) { %>
+                          <div class="image-container">
+                            <label class="image-label">
+                              <input type="checkbox" id="image-checkbox-<%= i %>" name="deleteImages[]" value="<%= img.filename %>" class="image-checkbox visually-hidden">
+                              <img src="<%= img.thumbnail %>" alt="">
+                              <span class="checkmark"></span>
+                            </label>
+                            <div class="image-actions">
+                              <label for="image-checkbox-<%= i %>" class="delete-label">Delete</label>
+                            </div>
+                          </div>
+                        <% }) %>
+                      </div>
+                      <div class="edit-button-container">
+                        <button class="edit-button">Edit Campground</button>
+                      </div>
+                      
             
                 </form>
                 <a href="/campgrounds">All campgrounds</a>
             </div>
         </div>
     </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const imageContainers = document.querySelectorAll('.image-container');
+      
+          imageContainers.forEach(function(container) {
+            const checkbox = container.querySelector('.image-checkbox');
+      
+            container.addEventListener('click', function(event) {
+              if (!event.target.closest('label')) {
+                checkbox.checked = !checkbox.checked;
+              }
+              
+              container.classList.toggle('selected');
+            });
+            
+            checkbox.addEventListener('change', function(event) {
+              container.classList.toggle('selected', this.checked);
+            });
+          });
+        });
+      </script>
+      
+      
+      
+      
+      
+      
