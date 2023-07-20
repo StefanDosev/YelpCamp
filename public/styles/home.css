@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    padding: 10px;
+  }
+  
+  .hero-section {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://source.unsplash.com/pSaEMIiUO84');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 150px 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+  }
+  
+  .campgrounds-section {
+    padding: 50px 0;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #393E41;
+  }
+  
+  .btn-primary {
+    background-color: #B04B3E;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #393E41;
+  }
+  
+  footer {
+    margin-top: 50px;
+    background-color: #393E41;
+    color: #fff;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  .navbar {
+    background-color: #F3E5AB;
+  }
+  
+
+
+.navbar-brand {
+    color: #393E41;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-link {
+    color: #393E41;
+  }
+  
+  .nav-link:hover {
+    color: #1B4332;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .bg-dark {
+    background-color: #393E41;
+  }
+  
+  .text-light {
+    color: #fff;
+  }
+  

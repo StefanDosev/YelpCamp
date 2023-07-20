@@ -1,0 +1,66 @@
+ .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-link:hover {
+    text-decoration: none;
+  }
+
+  
+
+
+  .card:hover .card-img-top {
+    filter: brightness(85%);
+  }
+
+  .fill{
+    width: 75px;
+    height: 100px;
+    object-fit: cover;
+    
+  }
+
+  @media (max-width: 766px) {
+    .fill{
+      width: 220px;
+      height: 100px;
+      object-fit: cover;
+      
+    }
+  } 
+
+  /* Custom styles for YelpCamp index page */
+
+/* Add more space from the sides */
+.container {
+  max-width: 1200px;
+ 
+}
+
+/* Card styles */
+.card {
+  border: 2px solid #393E41;
+  border-radius: 10px;
+}
+
+.card-title {
+  color: #1B4332;
+  font-weight: bold;
+}
+
+.card-text {
+  color: #556B2F;
+}
+
+.no-image {
+  color: #B04B3E;
+  font-style: italic;
+}
+
+/* Adjust spacing between cards */
+.mb-5 {
+  
+  padding: 0 25px;
+  
+}

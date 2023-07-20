@@ -36,10 +36,34 @@ const CampgroundSchema = new Schema({
 },opts)
 
 CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
-    return `
-    <strong><a href="/campgrounds/${this._id}">${this.title}</a><strong>
-    <p>${this.description.substring(0, 20)}...</p>`
+    if (this.images && this.images.length > 0) {
+        return `
+        
+        <a class="card-link" href="/campgrounds/${this._id}">
+        <div class="row g-0 p-0">
+          <div class="col-md-5">
+            <img src="${this.images[0].url}" class="fill" alt="...">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class="card-title"><strong>${this.title}</strong></h5>
+              <p class="card-text">${this.location}</p>
+              <p class="card-text"><small class="text-body-secondary">from <strong>$${this.price}</strong>/night</small></p>
+            </div>
+          </div>
+        </div>
+        </a>
+      
+            
+        `;
+    } else {
+        return `
+            <strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>
+        `;
+    }
 });
+
+
 
 
 CampgroundSchema.post('findOneAndDelete', async function(doc){

@@ -9,6 +9,7 @@ zoom: 9, // starting zoom
 
 });
 
+map.addControl(new mapboxgl.NavigationControl());
 
 // Create a default Marker and add it to the map.
 const marker = new mapboxgl.Marker()
