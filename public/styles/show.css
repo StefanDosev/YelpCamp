@@ -1,0 +1,82 @@
+/* Custom styles for YelpCamp show page */
+
+/* Camp Name */
+h1 {
+    color: #1B4332;
+  }
+  
+  /* Image Carousel */
+  .carousel-inner .carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  /* Card styles */
+  .card {
+    border: 2px solid #393E41;
+    border-radius: 10px;
+  }
+  
+  .card-title {
+    color: #1B4332;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    color: #556B2F;
+  }
+  
+  /* Review Form styles */
+  .starability-basic {
+    /* Add your custom star rating component styles here */
+    /* You can find or create a star rating component using CSS or a library like Font Awesome */
+  }
+  
+  /* Buttons */
+  .btn {
+    background-color: #3D5A3B;
+    color: #F3E5AB;
+    border-color: #3D5A3B;
+    border-radius: 5px;
+  }
+  
+  .btn-success {
+    background-color: #556B2F;
+    border-color: #556B2F;
+  }
+  
+  .btn-danger {
+    background-color: #B04B3E;
+    border-color: #B04B3E;
+  }
+  
+  /* Map Styles */
+  #map {
+    border: 2px solid #393E41;
+    border-radius: 10px;
+  }
+  
+  /* Footer */
+  .card-footer {
+    color: #393E41;
+    font-size: 14px;
+  }
+  
+  /* Additional Styling (Optional) */
+  body {
+    background-color: #f3e5ab41;
+    
+    padding-bottom: 30px;
+  }
+  
+  .container {
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+  
+  /* Adjust spacing between cards */
+  .mb-4 {
+    margin-bottom: 30px;
+  }
+  
+  

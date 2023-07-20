@@ -1,0 +1,30 @@
+#cluster-map {
+    width: 100%;
+    height: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+}
+
+.navbar {
+   
+    background-color: #ffffff;
+  }
+
+
+
+.navbar-brand {
+    color: #393E41;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-link {
+    color: #393E41;
+  }
+  
+  .nav-link:hover {
+    color: #1B4332;
+  }
