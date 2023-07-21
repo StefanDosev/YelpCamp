@@ -1,13 +1,29 @@
 const Campground = require('../models/campground');
+const Review = require('../models/review');
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const{cloudinary} = require('../cloudinary')
 
-module.exports.index = async(req,res)=>{
-    const campgrounds = await Campground.find({});
-    res.render('campgrounds/index',{campgrounds});
-}
+module.exports.index = async(req, res) => {
+    try {
+      const campgrounds = await Campground.find({});
+  
+      // Calculate the average rating and number of ratings for each campground
+      for (const camp of campgrounds) {
+        const ratings = await Review.find({ _id: { $in: camp.reviews } }).select('rating');
+        const totalRatings = ratings.length;
+        const averageRating = totalRatings > 0 ? ratings.reduce((acc, cur) => acc + cur.rating, 0) / totalRatings : 0;
+        camp.averageRating = averageRating;
+        camp.totalRatings = totalRatings;
+      }
+  
+      res.render('campgrounds/index', { campgrounds });
+    } catch (err) {
+      console.error('Error fetching campgrounds:', err);
+      res.render('error');
+    }
+  };
 
 module.exports.renderNewForm = (req,res)=>{
     res.render('campgrounds/new');

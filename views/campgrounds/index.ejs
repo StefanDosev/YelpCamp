@@ -1,7 +1,8 @@
 <% layout('layout/allCamps') %>
 
 <link rel="stylesheet" href="/styles/campgrounds.css">
-
+<link rel="stylesheet" href="/styles/show.css">
+<link rel="stylesheet" href="/styles/stars.css">
 <div id="cluster-map"></div>
 
 <h1 class="mt-4 mb-5">All Campgrounds</h1>
@@ -20,7 +21,19 @@
             <div class="card-body">
               <h5 class="card-title"><%= camp.title %></h5>
               <p class="card-text"><%= camp.location %></p>
+              <% if (camp.totalRatings > 0) { %>
+                <p class="card-text">Average Rating: <%= camp.averageRating.toFixed(1) %> (based on <%= camp.totalRatings %> ratings)</p>
+                <p class="starability-result" data-rating="<%= Math.floor(camp.averageRating) %>">
+                  Rated: <%= Math.floor(camp.averageRating) %> stars
+                </p>
+              <% } else { %>
+                <p class="card-text">No ratings yet</p>
+                <p class="starability-result" data-rating="0">
+                  Rated: 0 stars
+                </p>
+              <% } %>
               <p class="card-text">from <strong>$<%= camp.price %></strong>/night</p>
+              
             </div>
           </div>
         </a>
