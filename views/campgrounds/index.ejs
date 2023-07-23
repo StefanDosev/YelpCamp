@@ -14,7 +14,7 @@
         <a class="card-link" href="/campgrounds/<%= camp._id %>">
           <div class="card">
             <% if (camp.images && camp.images.length > 0) { %>
-              <img class="card-img-top" src="<%= camp.images[0].url %>" alt="">
+              <img crossorigin="anonymous" class="card-img-top" src="<%= camp.images[0].url %>" alt="">
             <% } else { %>
               <p class="no-image">No image available</p>
             <% } %>
