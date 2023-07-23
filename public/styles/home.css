@@ -1,63 +1,60 @@
-body {
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    padding: 10px;
-  }
-  
-  .hero-section {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+/* Custom styles for the homepage */
+
+/* Hero Section */
+.hero-section {
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('https://source.unsplash.com/pSaEMIiUO84');
     background-size: cover;
     background-position: center;
     color: #fff;
-    padding: 150px 0;
-  }
+  padding: 300px 0;
   
-  .hero-section h1 {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .hero-section p {
-    font-size: 1.25rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
     margin-bottom: 30px;
-  }
-  
-  .campgrounds-section {
-    padding: 50px 0;
-  }
-  
-  .card {
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .card-text {
-    font-size: 1rem;
-    color: #393E41;
-  }
-  
-  .btn-primary {
-    background-color: #B04B3E;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #393E41;
-  }
+  color:  #cdd8cb;
+}
+
+.hero-section .btn-primary {
+  background-color: #3D5A3B;
+  border-color: #3D5A3B;
+}
+
+/* Featured Campgrounds Section */
+.campgrounds-section {
+  padding: 40px 0;
+}
+
+.campgrounds-section h2 {
+  color: #1B4332;
+}
+
+.campgrounds-section .card {
+  border: 2px solid #B04B3E;
+  border-radius: 10px;
+}
+
+.campgrounds-section .card-title {
+  color: #1B4332;
+}
+
+.campgrounds-section .card-text {
+  color: #556B2F;
+}
+
+.campgrounds-section .btn-primary {
+  background-color: #3D5A3B;
+  border-color: #3D5A3B;
+}
+
   
   footer {
     margin-top: 50px;
